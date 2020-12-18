@@ -19,3 +19,35 @@ for( var i=65; i<= 90; i++){
     document.getElementById("keyboard").appendChild(node);
 }
 
+var length = word.length;
+var countOccorrenze = 0;
+var countErrors = 0;
+var flagTrovato = 0;
+
+function check(onechar){
+    flagTrovato = 0;
+    onechar = String.fromCharCode(onechar); 
+    console.log(onechar);
+    for(var i = 0; i < word.length; i++){
+        if(word[i] == onechar){
+            var elem = document.getElementById("randomWord").getElementsByTagName("span")[i].innerHTML = onechar;
+            countOccorrenze ++;
+            flagTrovato = 1;
+        }
+    }
+    if(flagTrovato == 0){
+        countErrors++;
+        document.getElementById("errors").innerHTML = countErrors;
+        if(countErrors == 2){
+            console.log("suggerimento");
+        }else if(countErrors == 3){
+            console.log("hai perso");
+        }
+    }
+    console.log(countOccorrenze);
+    console.log(countErrors);
+
+    if(countOccorrenze == length){
+        console.log("hai vinto");
+    }
+}
