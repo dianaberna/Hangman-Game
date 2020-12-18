@@ -2,15 +2,23 @@
     <head>
         <title>Hangman Game</title>
         <link rel="stylesheet" href="css/style.css">
-       
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Hangman Game</h1>
-        <p id="randomWord"></p>
-        <p id="suggestion"></p>
-        <p>Numero errori: <span id="errors"></span></p>
-        <p id="result"></p>
-        <div id="keyboard"></div>
+        <h1 id="title">Hangman Game</h1>
+        <div class="grid">
+            <div class="col-6">
+                <canvas id="myCanvas" width="400" height="350"></canvas>
+                <p id="randomWord"></p>
+                <p id="suggestion"></p>
+                <p>Numero errori: <span id="errors">0</span></p>
+                <h1 id="result"></h2>
+            </div>
+            <div class="col-6">
+                <div id="keyboard"></div>
+            </div>
+        </div>
     </body>
 
     <script src="js/script.js"></script>

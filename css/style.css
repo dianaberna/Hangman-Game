@@ -1,0 +1,41 @@
+body{
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+    grid-gap: 10px;
+  }
+
+#title{
+    padding-top: 20px;
+}
+
+#randomWord{
+    font-size: 3rem;
+}
+    #randomWord span{
+        padding: 5px;
+    }
+
+button{
+    border-radius: 50%;
+    border: 1px solid #000;
+    margin: 10px;
+    height: 60px;
+    width: 60px;
+}
+
+button:focus {
+    outline: 0;
+}
+
+button:hover{
+    background-color: darkgrey;
+}
+
+#keyboard{
+    margin-top: 20vh;
+}
