@@ -46,6 +46,10 @@ var countOccorrenze = 0;
 var countErrors = 0;
 var flagTrovato = 0;
 
+function newPlay(){
+    location.reload();
+}
+
 function check(onechar){
     flagTrovato = 0;
     onechar = String.fromCharCode(onechar); 
@@ -88,10 +92,12 @@ function check(onechar){
             context.lineTo(260,264);
             context.stroke();
             document.getElementById("result").innerHTML = "Game over :(";
+            document.getElementById("new").style.display = "inline";
         }
     }
 
     if(countOccorrenze == length){
         document.getElementById("result").innerHTML = "Win!";
+        document.getElementById("new").style.display = "inline";
     }
 }
