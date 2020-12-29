@@ -5,6 +5,7 @@ var word = words[Math.floor(Math.random() * words.length)];
 var position = words.indexOf(word);
 console.log(word);
 
+// Draw hangman canvas
 var c = document.getElementById("myCanvas");
 var context = c.getContext("2d");
 context.beginPath();
@@ -23,6 +24,7 @@ context.bezierCurveTo(247 - (0.5522847498307936 * 27), 162.5 + 23.5, 247 - 27, 1
 context.bezierCurveTo(247 - 27, 162.5 - (0.5522847498307936 * 23.5), 247 - (0.5522847498307936 * 27), 162.5 - 23.5, 247, 162.5 - 23.5);
 context.stroke();
 
+// Print empty word
 for (var i = 0; i < word.length; i++) {
     var node = document.createElement("span");
     var textnode = document.createTextNode("_");
@@ -30,14 +32,12 @@ for (var i = 0; i < word.length; i++) {
     document.getElementById("randomWord").appendChild(node);
 }
 
+// Print keyboard
 for( var i=65; i<= 90; i++){
     var node = document.createElement("button");
     node.setAttribute("onclick", "check("+i+")");
     var textnode = document.createTextNode(String.fromCharCode(i));
     node.appendChild(textnode);
-    // if(i == 75 || i==85){
-    //     document.getElementById("keyboard").appendChild(document.createElement("br"));
-    // }
     document.getElementById("keyboard").appendChild(node);
 }
 
@@ -46,10 +46,12 @@ var countOccorrenze = 0;
 var countErrors = 0;
 var flagTrovato = 0;
 
+// Reload page for new play
 function newPlay(){
     location.reload();
 }
 
+// Function for check char of the word
 function check(onechar){
     flagTrovato = 0;
     onechar = String.fromCharCode(onechar); 
@@ -66,14 +68,14 @@ function check(onechar){
     if(flagTrovato == 0){
         countErrors++;
         document.getElementById("errors").innerHTML = countErrors;
-        //add body on canvas
+        // Add body on canvas
         var c = document.getElementById("myCanvas");
         var context = c.getContext("2d");
         context.moveTo(247,187);
         context.lineTo(247,245);
         context.stroke();
         if(countErrors == 2){
-            //add arms on canvas
+            // Add arms on canvas
             var c = document.getElementById("myCanvas");
             var context = c.getContext("2d");
             context.moveTo(247,187);
@@ -83,7 +85,7 @@ function check(onechar){
             context.stroke();
             document.getElementById("result").innerHTML = "Suggestion: "+suggestions[position];
         }else if(countErrors == 3){
-            //add legs on canvas
+            // Add legs on canvas
             var c = document.getElementById("myCanvas");
             var context = c.getContext("2d");
             context.moveTo(246,245);
