@@ -12,7 +12,7 @@ Hangman is a simple game that revolves around guessing a randomly chosen word.
 - After receiving a certain number of strikes, the player loses the game.
 - The player will win the game if he/she/it correctly guesses all the alphabets.
 ### Screenshot
-![screenshot](https://github.com/dianaberna/Hangman-Game/screenshot.png)
+![screenshot](https://github.com/dianaberna/Hangman-Game/blob/main/screenshot.png)
 ## Technologies
 ***
 A list of technologies used within the project:
