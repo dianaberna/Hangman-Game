@@ -4,8 +4,7 @@ Hangman is a simple game that revolves around guessing a randomly chosen word.
 ## Table of Contents
 1. [General Info](#general-info)
 2. [Technologies](#technologies)
-### General Info
-***
+## General Info
 Hangman is a simple game that revolves around guessing a randomly chosen word.
 - The player gets to choose an alphabet every round.
 - If the alphabet does not exist in the chosen word, the player will receive one strike.
@@ -14,7 +13,6 @@ Hangman is a simple game that revolves around guessing a randomly chosen word.
 ### Screenshot
 ![screenshot](https://github.com/dianaberna/Hangman-Game/blob/main/screenshot.png)
 ## Technologies
-***
 A list of technologies used within the project:
 * HTML
 * CSS
