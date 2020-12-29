@@ -1,6 +1,6 @@
 # Hangman-Game
 Hangman is a simple game that revolves around guessing a randomly chosen word.
-![Deploy link](https://priceless-goodall-8f3c7b.netlify.app/)
+[Deploy link](https://priceless-goodall-8f3c7b.netlify.app/)
 ## Table of Contents
 1. [General Info](#general-info)
 2. [Technologies](#technologies)
