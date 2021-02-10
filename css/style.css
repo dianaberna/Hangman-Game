@@ -3,6 +3,7 @@ body{
     text-align: center;
 }
 
+/* layout of the page */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
@@ -20,9 +21,12 @@ body{
         padding: 5px;
     }
 
+/* keyword style */
 #keyboard{
     margin-top: 20vh;
 }
+
+/* button is the single key of the keyword */
 
 #keyboard button{
     border-radius: 50%;
@@ -41,6 +45,8 @@ button:hover{
     border: 1px solid #000;
 }
 
+
+/* new play */
 #new{
     display: none;
     padding: 10px;
