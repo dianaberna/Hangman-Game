@@ -4,11 +4,29 @@ body{
 }
 
 /* layout of the page */
-.grid {
+/* .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
     grid-gap: 10px;
-  }
+  } */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}  
+
+#keyboard-row1 { grid-area: 1 / 1 / 2 / 11; }
+#keyboard-row2 { grid-area: 2 / 1 / 3 / 10; }
+#keyboard-row3 { grid-area: 3 / 1 / 4 / 8; }
+
+.vertical-centered{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
 
 #title{
     padding-top: 20px;
@@ -20,15 +38,10 @@ body{
     #randomWord span{
         padding: 5px;
     }
-
-/* keyword style */
-#keyboard{
-    margin-top: 20vh;
-}
-
+    
 /* button is the single key of the keyword */
 
-#keyboard button{
+.keyboard button{
     border-radius: 50%;
     border: 1px solid #000;
     margin: 10px;
@@ -45,6 +58,9 @@ button:hover{
     border: 1px solid #000;
 }
 
+#myCanvas{
+    float: right;
+}
 
 /* new play */
 #new{

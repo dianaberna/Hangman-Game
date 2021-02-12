@@ -8,17 +8,25 @@
     <body>
         <h1 id="title">Hangman Game</h1>
         <div class="grid">
-            <div class="col-6">
+            <div>
                 <canvas id="myCanvas" width="400" height="350"></canvas>
+            </div>
+            <div class="vertical-centered">
                 <p id="randomWord"></p>
                 <p id="suggestion"></p>
                 <p>Numbers of errors: <span id="errors">0</span></p>
                 <h1 id="result"></h2>
                 <button id="new" onclick="newPlay()">New play</button>
             </div>
-            <div class="col-6">
-                <div id="keyboard"></div>
-            </div>
+        </div>
+        <div>
+            <p>Choose the keyboard layout:</p>
+            <input type="radio" id="keyword-it" name="keyword-it" value="it" onclick="keyboard(0)"> It
+            <input type="radio" id="keyword-qwerty" name="keyword-it" value="qwerty" onclick="keyboard(1)"> QWERTY
+            <div id="keyboard-row1" class="keyboard"> </div>
+            <div id="keyboard-row2" class="keyboard"> </div>
+            <div id="keyboard-row3" class="keyboard"> </div>    
+            
         </div>
     </body>
 
