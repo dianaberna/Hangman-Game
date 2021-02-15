@@ -4,7 +4,7 @@ var word;
 //var suggestions;
 var position;
 var length;
-var countOccorrenze;
+var numberCharactersEntered;
 var countErrors;
 var found;
 var keyboardLayout;
@@ -52,7 +52,7 @@ function newPlay(){
     // save the word length
     length = word.length;
     // initialize the counters for the game
-    countOccorrenze = 0;
+    numberCharactersEntered = 0;
     countErrors = 0;
     found = 0;
     document.getElementById("result").innerHTML = '';
@@ -206,7 +206,7 @@ function check(onechar){
             // replace the segment character with the letter
             document.getElementById("randomWord").getElementsByTagName("span")[i].innerHTML = onechar;
             // updates the occurrence count of the letter
-            countOccorrenze ++;
+            numberCharactersEntered ++;
             found = 1;
         }else if(word[i] === onechar && span != "-"){
             found = 1;
@@ -236,7 +236,7 @@ function check(onechar){
     }
     // check the winning condition, that is, I completed the word by guessing all the letters
     // and remaining with a number of errors less than or equal to two
-    if(countOccorrenze == length){
+    if(numberCharactersEntered == length){
         document.getElementById("result").innerHTML = "Win!";
         playsWon++;
         document.getElementById("won").innerHTML = playsWon;
