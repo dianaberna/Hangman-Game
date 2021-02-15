@@ -48,7 +48,7 @@ function newPlay(){
         node.appendChild(textnode);
         document.getElementById("randomWord").appendChild(node);
     }
-    loadJSON();
+    loadLayout();
     // save the word length
     length = word.length;
     // initialize the counters for the game
@@ -102,16 +102,14 @@ function keyboard(option){
 }
 
 // function for load the json layout
-function loadJSON(callback) {   
+function loadLayout(callback) {   
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'keyboard.json', true); // Replace 'my_data' with the path to your file
+    xobj.open('GET', 'keyboard.json', true);
     xobj.onreadystatechange = function () {
           if (xobj.readyState == 4 && xobj.status == "200") {
             // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
             keyboardLayout=JSON.parse(xobj.responseText);
-            //keyboard();
-            //console.log(keyboard);
           }
     };
     xobj.send(null);  
