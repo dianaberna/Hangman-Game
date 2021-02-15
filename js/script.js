@@ -1,7 +1,6 @@
 
 init();
 var word;
-//var suggestions;
 var position;
 var length;
 var numberCharactersEntered;
@@ -22,8 +21,6 @@ function init(){
     // print score
     document.getElementById("won").innerHTML = playsWon;
     document.getElementById("lost").innerHTML = playsLost;
-    // initialize array of suggestions
-    //suggestions = ["Where do you live", "Perfect with maple syrup", "!necessary", "The best friend of human"];
     newPlay();
 }
 
@@ -35,8 +32,6 @@ function newPlay(){
     word = words[Math.floor(Math.random() * words.length)];
     // print for debug
     console.log(word);
-    // save the position of the extracted word to access the array of suggestions
-    position = words.indexOf(word);
     // call the function for draw on canvas 
     drawHangman();
     // reset the segment of randow word
@@ -223,7 +218,6 @@ function check(onechar){
             // print a tip
             // add arms on canvas
             drawArms();
-            //document.getElementById("result").innerHTML = "Suggestion: "+suggestions[position];
         }else if(countErrors == 3){
             // game over 
             // add legs on canvas
