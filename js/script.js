@@ -9,7 +9,6 @@ var found;
 var keyboardLayout;
 var playsWon, playsLost;
 
-
 /* 
     Functions to initialize the game
 */
@@ -26,10 +25,18 @@ function init(){
 
 // function for reload page for new play
 function newPlay(){
+
+    var pokemon = newPokemon();
+    //utente.results[0].name
+    console.log("pokemon on newplay: ",pokemon);
     // initialize word array
     var words = ["home", "pancake", "unnecessary", "dog"];
     // randomly pick a word from the words array
+
+    //onePokemon = arrayPokemon.results[Math.floor(Math.random() * arrayPokemon.length)].name;
+    //console.log("onepokemon:"+onePokemon);
     word = words[Math.floor(Math.random() * words.length)];
+
     // print for debug
     console.log(word);
     // call the function for draw on canvas 
@@ -238,4 +245,35 @@ function check(onechar){
     }
 }
 
+/* API call for retrieve pokemon json */
+
+function newPokemon() {
+    var pokemon
+    fetch("https://pokeapi.co/api/v2/pokemon/").then(response => {
+        if (response.ok) {
+            console.log("Contenuto ricevuto");
+            //console.log(response);
+            return response.json();
+        }
+        if (response.status >= 100 && response.status < 200) {
+        console.log("Informazioni per il client");
+        }
+        if (response.status >= 300 && response.status < 399) {
+        console.log("Redirezione");
+        }
+        if (response.status >= 400 && response.status < 499) {
+        console.log("Richiesta errata");
+        }
+        if (response.status >= 500 && response.status < 599) {
+        console.log("Errore sul server");
+        }
+
+    }).then(output => {
+        var index = Math.floor(Math.random() * output.results.length)
+        pokemon = output.results[index].name;
+        console.log("pokemon in newPokemon: "+pokemon)
+        return pokemon;
+    }).catch(error => console.log("Si è verificato un errore!"))
+    return pokemon;
+}
 
