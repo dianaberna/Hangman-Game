@@ -52,6 +52,9 @@ function setNewPlay(){
         document.getElementById("randomWord").appendChild(node);
     }
     loadLayout();
+    setTimeout(function() {
+        setDefaultLayout();
+    }, 1000);
     // save the pokemon length
     length = pokemon.length;
     // initialize the counters for the game
@@ -108,7 +111,7 @@ function keyboard(option){
 function loadLayout(callback) {   
     var xobj = new XMLHttpRequest();
     xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'keyboard.json', true);
+    xobj.open('GET', './js/keyboard.json', true);
     xobj.onreadystatechange = function () {
           if (xobj.readyState == 4 && xobj.status == "200") {
             // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
@@ -132,6 +135,13 @@ function disableKeyboard(option){
             elem.disabled = option;
           });
     }  
+}
+
+// function for set the layout for default
+function setDefaultLayout(){
+    console.log("si")
+    document.getElementById("keyword-qwerty").checked = true;
+    keyboard(1);
 }
 
 /* 
@@ -230,7 +240,8 @@ function check(onechar){
             // game over 
             // add legs on canvas
             drawLegs();
-            document.getElementById("result").innerHTML = "Game over :(";
+            document.getElementById("result").innerHTML = "Game over :( <br> The pokemon is: "+pokemon;
+
             playsLost++;
             document.getElementById("lost").innerHTML = playsLost;
             disableKeyboard(true);
@@ -246,7 +257,7 @@ function check(onechar){
     }
 }
 
-/* API call for retrieve pokemon json from pokeapi */
+// API call for retrieve pokemon json from pokeapi
 function newPokemon() {
     fetch("https://pokeapi.co/api/v2/pokemon/").then(response => {
         if (response.ok) {
