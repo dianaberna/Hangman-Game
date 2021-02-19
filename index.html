@@ -17,19 +17,20 @@
         <div>
             <h1 id="result"></h1>
         </div>
-        <div class="grid">
+        <div class="container">
             <div>
                 <canvas id="myCanvas" width="400" height="350"></canvas>
             </div>
-            <div class="vertical-centered">
+            <div class="containerWord">
                 <p id="randomWord"></p>
                 <p>Numbers of errors: <span id="errors">0</span></p>
             </div>
         </div>
         <div>
             <p>Choose the keyboard layout:</p>
-            <input type="radio" id="keyword-it" name="keyword-it" value="it" onclick="keyboard(0)"> It
+            <input type="radio" id="keyword-it" name="keyword-it" value="it" onclick="keyboard(0)"> IT
             <input type="radio" id="keyword-qwerty" name="keyword-it" value="qwerty" onclick="keyboard(1)"> QWERTY
+            <br>
             <div id="keyboard-row1" class="keyboard"> </div>
             <div id="keyboard-row2" class="keyboard"> </div>
             <div id="keyboard-row3" class="keyboard"> </div>    

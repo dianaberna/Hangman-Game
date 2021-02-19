@@ -139,7 +139,6 @@ function disableKeyboard(option){
 
 // function for set the layout for default
 function setDefaultLayout(){
-    console.log("si")
     document.getElementById("keyword-qwerty").checked = true;
     keyboard(1);
 }
