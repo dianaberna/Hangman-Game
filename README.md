@@ -1,4 +1,7 @@
 # Hangman-Game
+
+[![HTML5](https://img.shields.io/badge/HTML-5-orange)[![CSS3](https://img.shields.io/badge/CSS-3-blue)[![JS](https://img.shields.io/badge/JS-ES6-yellow) 
+
 Hangman is a simple game that revolves around guessing a randomly chosen word.
 [Deploy link](https://priceless-goodall-8f3c7b.netlify.app/)
 ## Table of Contents
@@ -14,6 +17,6 @@ Hangman is a simple game that revolves around guessing a randomly chosen word.
 ![screenshot](https://github.com/dianaberna/Hangman-Game/blob/main/screenshotNew.png)
 ## Technologies
 A list of technologies used within the project:
-* HTML
-* CSS
+* HTML5
+* CSS3
 * Javascript 
