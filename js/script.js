@@ -1,6 +1,6 @@
 
 init();
-var word;
+var pokemon;
 var position;
 var length;
 var numberCharactersEntered;
@@ -22,37 +22,38 @@ function init(){
     document.getElementById("lost").innerHTML = playsLost;
     newPlay();
 }
+ 
+function resolve(){
+    return document.getElementById("hiddenPrint").textContent;
+}
 
-// function for reload page for new play
+// function for retrieve new pokemon and call the reset game
 function newPlay(){
+    newPokemon();
+    setTimeout(function() {
+        pokemon=resolve();
+        // print for debug
+        console.log(pokemon);
+        setNewPlay(pokemon);
+    }, 1000);
+}
 
-    var pokemon = newPokemon();
-    //utente.results[0].name
-    console.log("pokemon on newplay: ",pokemon);
-    // initialize word array
-    var words = ["home", "pancake", "unnecessary", "dog"];
-    // randomly pick a word from the words array
-
-    //onePokemon = arrayPokemon.results[Math.floor(Math.random() * arrayPokemon.length)].name;
-    //console.log("onepokemon:"+onePokemon);
-    word = words[Math.floor(Math.random() * words.length)];
-
-    // print for debug
-    console.log(word);
+// function for clean and set all data for a new play
+function setNewPlay(){
     // call the function for draw on canvas 
     drawHangman();
     // reset the segment of randow word
     document.getElementById("randomWord").innerHTML = '';
     // print segment for empty word
-    for (var i = 0; i < word.length; i++) {
+    for (var i = 0; i < pokemon.length; i++) {
         var node = document.createElement("span");
         var textnode = document.createTextNode("_");
         node.appendChild(textnode);
         document.getElementById("randomWord").appendChild(node);
     }
     loadLayout();
-    // save the word length
-    length = word.length;
+    // save the pokemon length
+    length = pokemon.length;
     // initialize the counters for the game
     numberCharactersEntered = 0;
     countErrors = 0;
@@ -201,16 +202,16 @@ function check(onechar){
     found = 0;
     document.getElementById(onechar).disabled = true;
     // iterates the word array to find if onechar is a present character
-    for(var i = 0; i < word.length; i++){
+    for(var i = 0; i < pokemon.length; i++){
         var span = document.getElementById("randomWord").getElementsByTagName("span")[i].innerHTML;
         // if the character is present and has not yet been identified
-        if(word[i] === onechar && span == "_"){
+        if(pokemon[i] === onechar && span == "_"){
             // replace the segment character with the letter
             document.getElementById("randomWord").getElementsByTagName("span")[i].innerHTML = onechar;
             // updates the occurrence count of the letter
             numberCharactersEntered ++;
             found = 1;
-        }else if(word[i] === onechar && span != "-"){
+        }else if(pokemon[i] === onechar && span != "-"){
             found = 1;
         }
     }
@@ -245,35 +246,30 @@ function check(onechar){
     }
 }
 
-/* API call for retrieve pokemon json */
-
+/* API call for retrieve pokemon json from pokeapi */
 function newPokemon() {
-    var pokemon
     fetch("https://pokeapi.co/api/v2/pokemon/").then(response => {
         if (response.ok) {
-            console.log("Contenuto ricevuto");
-            //console.log(response);
+            console.log("Content received");
             return response.json();
         }
         if (response.status >= 100 && response.status < 200) {
-        console.log("Informazioni per il client");
+        console.log("Information for the client");
         }
         if (response.status >= 300 && response.status < 399) {
-        console.log("Redirezione");
+        console.log("Redirect");
         }
         if (response.status >= 400 && response.status < 499) {
-        console.log("Richiesta errata");
+        console.log("Wrong request");
         }
         if (response.status >= 500 && response.status < 599) {
-        console.log("Errore sul server");
+        console.log("Error on the server");
         }
 
     }).then(output => {
         var index = Math.floor(Math.random() * output.results.length)
-        pokemon = output.results[index].name;
-        console.log("pokemon in newPokemon: "+pokemon)
-        return pokemon;
+        var p = output.results[index].name;
+        document.getElementById("hiddenPrint").innerHTML = p
     }).catch(error => console.log("Si è verificato un errore!"))
-    return pokemon;
 }
 
