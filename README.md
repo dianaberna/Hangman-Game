@@ -3,7 +3,7 @@
 ![HTML5](https://img.shields.io/badge/HTML-5-orange) ![CSS3](https://img.shields.io/badge/CSS-3-blue) ![JS](https://img.shields.io/badge/JS-ES6-yellow) 
 
 Hangman is a simple game that revolves around guessing a randomly chosen word.
-[Deploy link](https://priceless-goodall-8f3c7b.netlify.app/)
+[Deploy link](https://hangman-game-pokemon.netlify.app/)
 ## Table of Contents
 1. [General Info](#general-info)
 2. [Technologies](#technologies)
